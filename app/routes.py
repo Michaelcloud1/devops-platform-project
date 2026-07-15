@@ -1,6 +1,7 @@
 from flask import jsonify
-from datetime import datetime
-from config import Config
+from datetime import datetime, UTC
+from app.config import Config
+from app.logger import logger
 
 def register_routes(app):
 
@@ -11,7 +12,7 @@ def register_routes(app):
             "status": "running",
             "version": Config.VERSION,
             "environment": Config.ENVIRONMENT,
-            "timestamp": datetime.utcnow().isoformat() + "Z"
+            "timestamp": datetime.now(UTC).isoformat()
         })
 
     @app.route("/health")
