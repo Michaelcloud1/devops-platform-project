@@ -1,7 +1,7 @@
 from flask import jsonify
 from datetime import datetime, UTC
 from app.config import Config
-from app.logger import logger
+
 
 def register_routes(app):
 
